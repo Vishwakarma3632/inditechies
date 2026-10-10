@@ -59,7 +59,7 @@ export function ContactForm() {
     setStatus("loading");
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,6 +75,8 @@ export function ContactForm() {
 
       const result = await response.json();
 
+      console.log("Contact form submission result:", result);
+
       if (!response.ok) {
         throw new Error(
           result.message || "Unable to send your enquiry.",
@@ -82,8 +84,8 @@ export function ContactForm() {
       }
 
       setStatus("success");
-    } catch (error) {
-      console.error("Contact form submission failed:", error);
+    } catch (errorasdf) {
+      console.error("Contact form submission failed:",   errorasdf  );
       setStatus("error");
     }
   } 
